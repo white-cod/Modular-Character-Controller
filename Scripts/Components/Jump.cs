@@ -23,8 +23,9 @@ public class Jump : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && groundCheck && groundCheck.isGrounded)
         {
+            movement.OnJumpStart();
             rigidbody.linearVelocity = new Vector3(rigidbody.linearVelocity.x, 0, rigidbody.linearVelocity.z);
-            rigidbody.AddForce(Vector3.up * 100 * jumpStrength);
+            rigidbody.AddForce(Vector3.up * 400 * jumpStrength);
             movement.LockMovementDirection();
             Jumped?.Invoke();
         }
